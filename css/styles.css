@@ -11641,23 +11641,31 @@ body {
   }
 }
 
-.signup-section {
+.videos-section {
   padding: 10rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../assets/img/bg-signup.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
 }
-.signup-section .form-signup input {
-  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  padding: 1.25rem 2rem;
-  height: auto;
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  border: 0;
+.videos-section .featured-text {
+  padding: 2rem;
+}
+@media (min-width: 992px) {
+  .videos-section .featured-text {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #FFC0CB	;
+  }
+}
+.videos-section .project-text {
+  padding: 3rem;
+  font-size: 90%;
+}
+@media (min-width: 992px) {
+  .videos-section .project-text {
+    padding: 5rem;
+  }
+  .videos-section .project-text hr {
+    border-color: #FFC0CB	;
+    border-width: 0.25rem;
+    width: 30%;
+  }
 }
 
 .contact-section {
@@ -11956,3 +11964,6 @@ body {
   .swiper-button-prev::after, .swiper-container-rtl .swiper-button-prev::after {
    content: "attr" !important;
   }
+
+
+  /*videos*/
