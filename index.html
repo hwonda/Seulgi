@@ -194,33 +194,51 @@
         <!-- Videos-->
         <section class="videos-section bg-light" id="videos">
             <div class="container px-4 px-lg-5">
-                <h3>동영상 테스트</h3>
+                <div class="text-center"><h4>Videos</h4></div>
                 <!-- Featured Videos Row-->
-                <ul class="slider">
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                    <li class="item"><a href="#"></a></li>
-                </ul>
-                <div class="controls">
-                    <button class="prev">Prev</button>
-                    <div class="progress-bar"></div>
-                    <button class="next">Next</button>
-                </div>
+                <div style="width: 100%; position:relative; padding-bottom: 56.25%; " id="player"></div>
+
+                <script>
+                // 2. 이 코드는 IFrame Player API 코드를 비동기 적으로로드합니다.
+                var tag = document.createElement('script');
+
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                // 3.이 함수는 <iframe> (및 YouTube 플레이어)을 만듭니다.API 코드 다운로드 후.
+                
+                var player;
+                function onYouTubeIframeAPIReady() {
+                    player = new YT.Player('player', {
+                    width: "100%";
+                    height: "100%";
+                    videoId: 'WegZcgcy7JI',
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                    });
+                }
+
+                // 4. API는 동영상 플레이어가 준비되면이 함수를 호출합니다.
+                function onPlayerReady(event) {
+                    event.target.playVideo();
+                }
+
+                // 5. API는 플레이어의 상태가 변경 될 때이 함수를 호출합니다.이 함수는 비디오 
+                //(상태 = 1)를 재생할 때 플레이어는 6 초 동안 재생 한 다음 중지해야합니다.
+                var done = false;
+                function onPlayerStateChange(event) {
+                    // if (event.data == YT.PlayerState.PLAYING && !done) {
+                    // setTimeout(stopVideo, 6000);
+                    // done = true;
+                    // }
+                }
+                function stopVideo() {
+                    player.stopVideo();
+                }
+                </script>
             </div>
         </section>
         
