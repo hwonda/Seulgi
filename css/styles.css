@@ -11974,10 +11974,11 @@ body {
   }
 
   .v-card{
+    flex: 1 1 auto;
+    padding: 0.25rem 0.25rem;
     width: 25rem; 
     height: 35rem;
     margin: 0;
-    padding: 0;
     left: 10px;
     right: 0;
     bottom: 10%;
